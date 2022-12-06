@@ -162,7 +162,6 @@ std::vector<std::vector<int>> get_all_indeces(std::vector<int>const& bip, int nu
 }
 
 std::vector<std::vector<bool>> get_crossingMatrix(std::vector<int>const& bip, std::vector<std::vector<int>>const& allLineIndeces, int numberOfLines) {
-
 	std::vector<std::vector<bool>> crossingMatrix = std::vector<std::vector<bool>>(numberOfLines, std::vector<bool>(numberOfLines, 0));
 	for (unsigned int i = 0; i < numberOfLines; i++) {
 		for (unsigned int j = i+1; j < numberOfLines; j++) {
@@ -173,8 +172,7 @@ std::vector<std::vector<bool>> get_crossingMatrix(std::vector<int>const& bip, st
 	return crossingMatrix;
 }
 
-int select_line(std::vector<std::vector<int>>const& allLineIndeces, std::vector<std::vector<bool>>const& crossingMatrix, int numberOfLines)
-{
+int select_line(std::vector<std::vector<int>>const& allLineIndeces, std::vector<std::vector<bool>>const& crossingMatrix, int numberOfLines){
 	int size = 2*numberOfLines;
 	int minScore	= size;
 	int minScore2	= size;
@@ -214,8 +212,7 @@ int select_line(std::vector<std::vector<int>>const& allLineIndeces, std::vector<
 	return minLabel;
 }
 
-PartialOrder get_partial_order(int splitLabel, std::vector<int> splitIdx, std::vector<int>const& bip, std::vector<std::vector<bool>>const& crossingMatrix)
-{
+PartialOrder get_partial_order(int splitLabel, std::vector<int> splitIdx, std::vector<int>const& bip, std::vector<std::vector<bool>>const& crossingMatrix){
 	int degree = 0;
 	for (bool b : crossingMatrix[splitLabel])
 		degree += b;
@@ -239,8 +236,7 @@ PartialOrder get_partial_order(int splitLabel, std::vector<int> splitIdx, std::v
 	return partialOrder;
 }
 
-std::tuple<std::vector<int>, std::vector<int>> get_half_bips(std::vector<int> splitIdx, std::vector<int>const& bip, std::vector<int>const& crossingLines)
-{
+std::tuple<std::vector<int>, std::vector<int>> get_half_bips(std::vector<int> splitIdx, std::vector<int>const& bip, std::vector<int>const& crossingLines){
 	int size = bip.size();
 	auto kItr1 = bip.begin() + splitIdx[0];
 	auto kItr2 = bip.begin() + splitIdx[1];
@@ -289,8 +285,7 @@ std::tuple<std::vector<int>, std::vector<int>> get_half_bips(std::vector<int> sp
 	return std::make_tuple(leftHalf, rightHalf);
 }
 
-void make_canonical(std::vector<int>& bip, std::vector<std::vector<int>>const& lineIndeces)
-{
+void make_canonical(std::vector<int>& bip, std::vector<std::vector<int>>const& lineIndeces){
 	int size = bip.size();
 	int numberOfLines = size / 2;
 	std::vector<std::vector<int>> promisingIndeces;
