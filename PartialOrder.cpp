@@ -10,16 +10,16 @@ void PartialOrder::add_edge(int a, int b){
 	indeg[b]++;
 }
 
-std::vector<std::vector<int>> PartialOrder::all_top_sortings(){
+std::vector<std::vector<int>> PartialOrder::all_linear_extensions(){
 	std::vector<bool> visited(V, false);
 	std::vector<int> res;
 
-	all_top_sortings_recursion(res, visited);
+	all_linear_extensions_recursion(res, visited);
 
 	return results;
 }
 
-void PartialOrder::all_top_sortings_recursion(std::vector<int>& res, std::vector<bool>& visited){
+void PartialOrder::all_linear_extensions_recursion(std::vector<int>& res, std::vector<bool>& visited){
 	bool newVertexViseted = false;
 
 	for (int i = 0; i < V; i++) {
@@ -31,7 +31,7 @@ void PartialOrder::all_top_sortings_recursion(std::vector<int>& res, std::vector
 			res.push_back(i);
 			visited[i] = true;
 
-			all_top_sortings_recursion(res, visited);
+			all_linear_extensions_recursion(res, visited);
 
 			visited[i] = false;
 			res.pop_back();
