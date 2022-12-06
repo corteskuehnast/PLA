@@ -13,7 +13,7 @@ private:
 	int V;
 	//std::vector<std::vector<bool>>	A;
 	std::vector<std::vector<int>>	adj;
-	std::vector<int>				indeg;
+	std::vector<int>		indeg;
 	std::vector<std::vector<int>>	results;
 
 	void all_top_sortings_recursion(std::vector<int>& res, std::vector<bool>& visited);
