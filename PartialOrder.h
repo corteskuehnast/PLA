@@ -16,6 +16,6 @@ private:
 	std::vector<int>		indeg;
 	std::vector<std::vector<int>>	results;
 
-	void all_top_sortings_recursion(std::vector<int>& res, std::vector<bool>& visited);
+	void all_linear_extensions_recursion(std::vector<int>& res, std::vector<bool>& visited);
 };
 
