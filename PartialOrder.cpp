@@ -1,16 +1,19 @@
 #include "PartialOrder.h"
 
-PartialOrder::PartialOrder(int V): V(V) {
+PartialOrder::PartialOrder(int V): V(V) 
+{
 	adj = std::vector<std::vector<int>>(V, std::vector<int>());
 	indeg = std::vector<int>(V, 0);
 }
 
-void PartialOrder::add_edge(int a, int b){
+void PartialOrder::add_edge(int a, int b)
+{
 	adj[a].push_back(b);
 	indeg[b]++;
 }
 
-std::vector<std::vector<int>> PartialOrder::all_linear_extensions(){
+std::vector<std::vector<int>> PartialOrder::all_linear_extensions()
+{
 	std::vector<bool> visited(V, false);
 	std::vector<int> res;
 
@@ -19,7 +22,8 @@ std::vector<std::vector<int>> PartialOrder::all_linear_extensions(){
 	return results;
 }
 
-void PartialOrder::all_linear_extensions_recursion(std::vector<int>& res, std::vector<bool>& visited){
+void PartialOrder::all_linear_extensions_recursion(std::vector<int>& res, std::vector<bool>& visited)
+{
 	bool newVertexViseted = false;
 
 	for (int i = 0; i < V; i++) {
