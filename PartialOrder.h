@@ -5,7 +5,7 @@ class PartialOrder{
 public:
 	PartialOrder(int V);
 	void add_edge(int a, int b);
-	std::vector<std::vector<int>> all_top_sortings();
+	std::vector<std::vector<int>> all_linear_extensions();
 
 	std::vector<int> lineLabels;
 
