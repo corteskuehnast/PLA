@@ -34,16 +34,16 @@ ap_int<INT_SIZE> calc_num_of_arrangements_with_checks(std::vector<int> const& bi
 //the base case
 int calc_small_bip(std::vector<int>const& bip, int numberOfLines);
 
-//a vector of pairs of indeces, with bip[indeces[i][0]] = bip[indeces[i][1]] = i
+//returns a vector of pairs of indeces, with bip[indeces[i][0]] = bip[indeces[i][1]] = i
 std::vector<std::vector<int>> get_all_indeces(std::vector<int>const& bip, int numberOfLines);
 
-//adjacency matirx of the intersection graph of the pseudolines
+//returns the adjacency matirx of the intersection graph of the pseudolines
 std::vector<std::vector<bool>> get_crossingMatrix(std::vector<int>const& bip, std::vector<std::vector<int>>const& allLineIndeces, int numberOfLines);
 
-//the best line to split the problem with
+//returns the best line to split the problem with
 int select_line(std::vector<std::vector<int>>const& allLineIndeces, std::vector<std::vector<bool>>const& crossingMatrix, int numberOfLines);
 
-//partial order on the set of pseudolines crossing splitLine. used to get the linear extensions
+//returns the partial order on the set of pseudolines crossing splitLine. used to get the linear extensions
 PartialOrder get_partial_order(int splitLabel, std::vector<int> splitIdx, std::vector<int>const& bip, std::vector<std::vector<bool>>const& crossingMatrix);
 
 //constructs the partial pibermutations coresponding to the two halves of the original problem. 
